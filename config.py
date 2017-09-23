@@ -1,0 +1,4 @@
+"""
+This is the configuration file
+"""
+SECRET_KEY = '\x0e\xe4~C"^\xe5\xfb\x1e\x12/\x8d\x8f\x1f7\x13V,\xd5 <F\xde\xca'
