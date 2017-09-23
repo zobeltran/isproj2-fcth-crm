@@ -5,7 +5,10 @@ name = "pypi"
 
 [packages]
 flask = "*"
+"flask-sqlalchemy" = "*"
+
 
 [dev-packages]
 pylint = "*"
+
 
