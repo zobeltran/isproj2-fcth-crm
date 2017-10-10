@@ -102,3 +102,6 @@ ENV/
 
 # vscode files
 .vscode
+
+# pylint files
+.pylintrc
