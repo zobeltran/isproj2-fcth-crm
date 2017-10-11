@@ -9,10 +9,14 @@ flask = "*"
 "flask-sqlalchemy" = "*"
 "flask-user" = "*"
 "flask-mail" = "*"
+"psycopg2" = "*"
 
 
 [dev-packages]
 pylint = "*"
+
+
+
 
 
 
