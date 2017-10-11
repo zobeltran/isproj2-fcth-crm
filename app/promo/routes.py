@@ -12,3 +12,10 @@ def promos():
     Promos
     """
     return render_template("packages.html")
+
+@MOD_PROMO.route('/package/<int:package_id>')
+def package():
+    """
+    Package
+    """
+    return render_template('package.html')
