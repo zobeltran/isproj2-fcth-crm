@@ -23,24 +23,24 @@ Defense Fee and OR | Create Flights Page
 
 **Steps**
 1. Clone Project (with Git) or Download the project 
-``` 
-https://github.com/zobeltran/isproj2-fcth-crm.git
+```shell 
+git https://github.com/zobeltran/isproj2-fcth-crm.git
 ```
 2. Download and Install Python 3.6
 3. Install PIPENV in Command Promt or Terminal
-```
+```shell
 pip install pipenv
 ```
 4. Navigate to the project Directory
-```
+```shell
 cd isproj2-fcth-crm
 ```
 5. Run pipenv to install modules
-```
+```shell
 pipenv install
 ```
 6. Run the code
-```
+```shell
 pipenv run python run.py
 ```
 <!-- 
