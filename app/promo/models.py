@@ -27,7 +27,7 @@ class HotelBookings(DB.Model):
     hbooking_price = DB.Column(DB.Float)
     hbooking_createtime = DB.Column(DB.DateTime)
     hbooking_updated = DB.Column(DB.DateTime)
-    __tablename__ = 'Hotel_Bookings'
+    __tablename__ = 'Hotel_Booking'
     def __repr__(self):
         return '<Hotel %r)' % self.hbooking_name
 
@@ -41,6 +41,6 @@ class FlightBooking(DB.Model):
     fbooking_price = DB.Column(DB.Float)
     fbooking_createtime = DB.Column(DB.DateTime)
     fbooking_updated = DB.Column(DB.DateTime)
-    fbooking__tablename__ = 'Flight_Bookings'
+    fbooking__tablename__ = 'Flight_Booking'
     def __repr__(self):
         return '<Flight %r)' % self.fbooking_name
