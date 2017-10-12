@@ -4,6 +4,17 @@
 
 ### TO DO
 
+Production Based | Project Based 
+---|---
+Commit Change Request | ~~Packages Pages~~
+Create Gantt Chart | Flights Page
+~~Establish Database Connection~~ | Bookings Page
+~~Establish Production Database (Heroku Postgresql)~~ | Customer User Authentication
+User's Manual | Admin User Authentication
+Deployment | Create Package Page
+CD Deployment | Create Bookings Page
+Defense Fee and OR | Create Flights Page
+<!-- 
 **Production Based**
 - [ ] Commit Change Request
 - [ ] Create Gantt Chart
@@ -13,11 +24,11 @@
 - [ ] Source Code
 
 **Project Base**
-- [x] Packages
-- [ ] Flights
-- [ ] Bookings
-- [ ] Customer User
-- [ ] Admin User
-- [ ] Create Packages
-- [ ] Create Bookings
-- [ ] Create Flights
+- [x] Packages Page
+- [ ] Flights Page
+- [ ] Bookings Page
+- [ ] Customer User Authentication
+- [ ] Admin User Authentication
+- [ ] Create Packages Page
+- [ ] Create Bookings Page
+- [ ] Create Flights Page -->
