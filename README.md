@@ -14,6 +14,35 @@ User's Manual | Admin User Authentication
 Deployment | Create Package Page
 CD Deployment | Create Bookings Page
 Defense Fee and OR | Create Flights Page
+
+### How to Run the Code Locally
+
+**REQUIREMENTS**
+1. Python 3.6
+2. Postgesql
+
+**Steps**
+1. Clone Project (with Git) or Download the project 
+``` 
+https://github.com/zobeltran/isproj2-fcth-crm.git
+```
+2. Download and Install Python 3.6
+3. Install PIPENV in Command Promt or Terminal
+```
+pip install pipenv
+```
+4. Navigate to the project Directory
+```
+cd isproj2-fcth-crm
+```
+5. Run pipenv to install modules
+```
+pipenv install
+```
+6. Run the code
+```
+pipenv run python run.py
+```
 <!-- 
 **Production Based**
 - [ ] Commit Change Request
