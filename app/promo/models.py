@@ -1,7 +1,10 @@
 """
 Models for Promos Module
 """
-from app import DB
+from flask_sqlalchemy import SQLAlchemy
+
+# Database Initialization
+DB = SQLAlchemy()
 
 class Packages(DB.Model):
     """
@@ -14,6 +17,7 @@ class Packages(DB.Model):
     package_createtime = DB.Column(DB.DateTime)
     package_updated = DB.Column(DB.DateTime)
     __tablename__ = 'Package'
+
     def __repr__(self):
         return '<Package %r)' % self.package_name
 
@@ -28,6 +32,7 @@ class HotelBookings(DB.Model):
     hbooking_createtime = DB.Column(DB.DateTime)
     hbooking_updated = DB.Column(DB.DateTime)
     __tablename__ = 'Hotel_Booking'
+
     def __repr__(self):
         return '<Hotel %r)' % self.hbooking_name
 
@@ -42,5 +47,6 @@ class FlightBooking(DB.Model):
     fbooking_createtime = DB.Column(DB.DateTime)
     fbooking_updated = DB.Column(DB.DateTime)
     fbooking__tablename__ = 'Flight_Booking'
+
     def __repr__(self):
         return '<Flight %r)' % self.fbooking_name
