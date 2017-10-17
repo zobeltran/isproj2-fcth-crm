@@ -12,10 +12,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Packages <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="#">Flights Bookings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Hotel Bookings</a>
             </li>
         </ul>
         <ul class="navbar-nav">
@@ -28,6 +31,7 @@
         </ul>
     </div>
 </nav>
+
 {% endblock %}
 
 <!-- Jumbotron Block -->
@@ -43,21 +47,22 @@
 <!-- Content Block -->
 {% block content %}
     <div class="container">
-        {% for item in packages|batch(3, '&nbsp;') %}
+        {% for item in packages|batch(3) %}
         <div class="card-deck">
             {% for package in item %}
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">{% package.package_name %}</h4>
-                    <p class="card-text">{% package.package_description %}</p>
-                    <p class="card-text">{% package.package_price %}</p>
+                    <h4 class="card-title" href="">{{ package.package_name }}</h4>
+                    <p class="card-text">{{ package.package_description }}</p>
+                    <p class="card-text">{{ package.package_price }}</p>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">Last Updated at {% package.package_updated %}</small>
+                    <small class="text-muted">Last Updated at {{ package.package_updated }}</small>
                 </div>
             </div>
             {% endfor %}    
         </div>
+        <br>
         {% endfor %}
     </div>
 {% endblock %}
