@@ -10,10 +10,12 @@ flask = "*"
 "flask-user" = "*"
 "flask-mail" = "*"
 "psycopg2" = "*"
+"flask-wtf" = "*"
 
 
 [dev-packages]
 pylint = "*"
+
 
 
 
