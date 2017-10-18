@@ -4,16 +4,16 @@
 
 ### TO DO
 
-Production Based | Project Based 
----|---
-Commit Change Request | ~~Packages Pages~~
-Create Gantt Chart | Flights Page
-~~Establish Database Connection~~ | Bookings Page
-~~Establish Production Database (Heroku Postgresql)~~ | Customer User Authentication
-User's Manual | Admin User Authentication
-Deployment | Create Package Page
-CD Deployment | Create Bookings Page
-Defense Fee and OR | Create Flights Page
+Production Based                                        |       Project Based 
+                                                     ---|---
+Commit Change Request                                   |       ~~Packages Pages~~
+Create Gantt Chart                                      |       Flights Page
+~~Establish Database Connection~~                       |       Bookings Page
+~~Establish Production Database (Heroku Postgresql)~~   |       Customer User Authentication
+User's Manual                                           |       Admin User Authentication
+Deployment                                              |       Create Package Page
+CD Deployment                                           |       Create Bookings Page
+Defense Fee and OR                                      |       Create Flights Page
 
 ### How to Run the Code Locally
 
@@ -43,21 +43,3 @@ pipenv install
 ```shell
 pipenv run python run.py
 ```
-<!-- 
-**Production Based**
-- [ ] Commit Change Request
-- [ ] Create Gantt Chart
-- [x] Establish Database Connection
-- [x] Establish Production Database (Heroku Postgresql)
-- [ ] User's Manual
-- [ ] Source Code
-
-**Project Base**
-- [x] Packages Page
-- [ ] Flights Page
-- [ ] Bookings Page
-- [ ] Customer User Authentication
-- [ ] Admin User Authentication
-- [ ] Create Packages Page
-- [ ] Create Bookings Page
-- [ ] Create Flights Page -->
