@@ -5,7 +5,7 @@
 ### TO DO
 
 Production Based                                        |       Project Based 
-                                                     ---|---
+--------------------------------------------------------|---------------------------------------
 Commit Change Request                                   |       ~~Packages Pages~~
 Create Gantt Chart                                      |       Flights Page
 ~~Establish Database Connection~~                       |       Bookings Page
