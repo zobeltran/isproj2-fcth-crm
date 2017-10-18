@@ -23,7 +23,7 @@ def package():
     packages = Packages.query.all()
     return render_template('package.html', packages=packages)
 
-@MOD_PROMO.route('/flights', methods=['GET','POST'])
+@MOD_PROMO.route('/flights', methods=['GET', 'POST'])
 def flights():
     """
     Flights
