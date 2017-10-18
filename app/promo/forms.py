@@ -4,7 +4,7 @@ Form Class for Promo Modules
 
 from flask_wtf import FlaskForm
 from wtforms import StringField, FloatField, IntegerField, SubmitField
-from wtforms.validators import InputRequired, DataRequired, Length
+from wtforms.validators import InputRequired, DataRequired, Length, Email
 from wtforms.fields.html5 import DateField
 
 class FlightForm(FlaskForm):
@@ -12,6 +12,7 @@ class FlightForm(FlaskForm):
     Form Class for Flights
 
     Fields          :   Data Type
+    email           :   Email
     place_from      :   String
     place_to        :   String
     departure_date  :   Date
@@ -19,6 +20,11 @@ class FlightForm(FlaskForm):
     budget_range    :   Float
     head_count      :   Integer
     """
+
+    email = StringField('Email Address',
+                        validators=[InputRequired(message='Please insert an Email Address'),
+                                    Email(message='Please input a valid Email Address'),
+                                    Length(max=100)])
     place_from = StringField('Departure Place',
                              validators=[InputRequired(message='Please insert a Departure Place'),
                                          Length(max=100)])
@@ -40,13 +46,18 @@ class HotelForm(FlaskForm):
     Form Class for Hotels
 
     Fields          :   Data Type
+    Email           :   Email
     Hotel Location  :   String
     Check in Date   :   Date
     Check out Date  :   Date
     Number of Rooms :   Integer
     Budget Range    :   Float
     """
-    hotel_location = StringField('Total Location',
+    email = StringField('Email Address',
+                        validators=[DataRequired('Please insert an Email Address'),
+                                    Email(message='Please insert a valid Email Address'),
+                                    Length(max=100)])
+    hotel_location = StringField('Hotel Location',
                                  [DataRequired('Please insert a Departure Place'),
                                   Length(max=100)])
     check_in_date = DateField('Departure Date',
