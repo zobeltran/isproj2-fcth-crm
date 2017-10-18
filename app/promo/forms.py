@@ -7,6 +7,7 @@ from wtforms import StringField, FloatField, IntegerField, SubmitField
 from wtforms.validators import InputRequired, DataRequired, Length, Email
 from wtforms.fields.html5 import DateField
 
+
 class FlightForm(FlaskForm):
     """
     Form Class for Flights
@@ -23,7 +24,8 @@ class FlightForm(FlaskForm):
 
     email = StringField('Email Address',
                         validators=[InputRequired(message='Please insert an Email Address'),
-                                    Email(message='Please input a valid Email Address'),
+                                    Email(
+                                        message='Please input a valid Email Address'),
                                     Length(max=100)])
     place_from = StringField('Departure Place',
                              validators=[InputRequired(message='Please insert a Departure Place'),
@@ -41,21 +43,22 @@ class FlightForm(FlaskForm):
                               validators=[InputRequired(message='Please enter the head count')])
     submit = SubmitField('Submit')
 
+
 class HotelForm(FlaskForm):
     """
-    Form Class for Hotels
+    Form Class for Hotels.
 
-    Fields          :   Data Type
-    Email           :   Email
-    Hotel Location  :   String
-    Check in Date   :   Date
-    Check out Date  :   Date
-    Number of Rooms :   Integer
-    Budget Range    :   Float
+    Email           =   Email
+    Hotel Location  =   String
+    Check in Date   =   Date
+    Check out Date  =   Date
+    Number of Rooms =   Integer
+    Budget Range    =   Float
     """
     email = StringField('Email Address',
                         validators=[DataRequired('Please insert an Email Address'),
-                                    Email(message='Please insert a valid Email Address'),
+                                    Email(
+                                        message='Please insert a valid Email Address'),
                                     Length(max=100)])
     hotel_location = StringField('Hotel Location',
                                  [DataRequired('Please insert a Departure Place'),
@@ -68,3 +71,4 @@ class HotelForm(FlaskForm):
                                    [DataRequired('Please Enter number of Rooms needed')])
     budget_range = FloatField('Budget Range',
                               [DataRequired('Please enter a Budget Range')])
+    submit = SubmitField('Submit')
