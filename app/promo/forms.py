@@ -12,14 +12,13 @@ class FlightForm(FlaskForm):
     """
     Form Class for Flights
 
-    Fields          :   Data Type
-    email           :   Email
-    place_from      :   String
-    place_to        :   String
-    departure_date  :   Date
-    arrival_date    :   Date
-    budget_range    :   Float
-    head_count      :   Integer
+    email           =   Email
+    place_from      =   String
+    place_to        =   String
+    departure_date  =   Date
+    arrival_date    =   Date
+    budget_range    =   Float
+    head_count      =   Integer
     """
 
     email = StringField('Email Address',
