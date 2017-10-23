@@ -13,7 +13,7 @@ class DevelopmentConfig(BaseConfig):
     This is the main configuration class
     """
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:admin@localhost/crmfcth'
+    SQLALCHEMY_DATABASE_URI = r'sqlite:///C:\User\Renzo\Documents\Codes\Python\isproj2-fcth-crm\dev\crm.db'
     SECRET_KEY = 'developmentsecretkey'
     UPLOAD_FOLDER = 'app/upload'
 
