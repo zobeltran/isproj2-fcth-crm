@@ -7,13 +7,13 @@
 Production Based                                        |       Project Based 
 --------------------------------------------------------|---------------------------------------
 Commit Change Request                                   |       ~~Packages Pages~~
-Create Gantt Chart                                      |       Flights Page
-~~Establish Database Connection~~                       |       Bookings Page
+Create Gantt Chart                                      |       ~~Request Flights Page~~
+~~Establish Database Connection~~                       |       ~~Request Bookings Page~~
 ~~Establish Production Database (Heroku Postgresql)~~   |       Customer User Authentication
 User's Manual                                           |       Admin User Authentication
 Deployment                                              |       Create Package Page
-CD Deployment                                           |       Create Bookings Page
-Defense Fee and OR                                      |       Create Flights Page
+CD Deployment                                           |       View Request Bookings Page
+Defense Fee and OR                                      |       View Request Flights Page
 
 ### How to Run the Code Locally
 
