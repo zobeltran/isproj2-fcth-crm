@@ -11,9 +11,11 @@ flask = "*"
 "flask-mail" = "*"
 "psycopg2" = "*"
 "flask-wtf" = "*"
+gunicorn = "*"
 
 
 [dev-packages]
+
 pylint = "*"
 "autopep8" = "*"
 
