@@ -29,7 +29,7 @@ CSRF = CSRFProtect(APP)
 # USER_MANAGER = UserManager(DB_ADAPTER, APP)
 
 # Configuration
-APP.config.from_object('config.DevelopmentConfig')
+APP.config.from_object('config.ProductionConfig')
 
 # Blueprint Registration
 APP.register_blueprint(MOD_PROMO)
