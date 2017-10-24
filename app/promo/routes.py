@@ -9,25 +9,19 @@ MOD_PROMO = Blueprint('promo', __name__, template_folder='templates',
 
 @MOD_PROMO.route('/')
 def promos():
-    """
-    Promos
-    """
+    """ Promos """
     packages = Packages.query.order_by(Packages.package_id.desc()).all()
     return render_template("packages.html", packages=packages)
 
 @MOD_PROMO.route('/package/<int:package_id>')
 def package():
-    """
-    Package
-    """
+    """ Package """
     packages = Packages.query.all()
     return render_template('package.html', packages=packages)
 
 @MOD_PROMO.route('/flights', methods=['GET', 'POST'])
 def flights():
-    """
-    Flights
-    """
+    """ Flights """
     form = forms.FlightForm()
     # print(form.errors)
     if form.validate_on_submit():
@@ -36,3 +30,12 @@ def flights():
     # if form.is_submitted():
         # return '<h1>Flight Destination:' + form.place_to.data + '</h1> Submitted'
     return render_template("flightbooking.html", form=form)
+
+@MOD_PROMO.route('/bookings', methods=['GET', 'POST'])
+def bookings
+  """ Bookings """
+  form = forms.HotelForm()
+  if form.validate_on_submit():
+    return '<h1>Hotel Bookings: ' + form.hotel_location.data '</h1>'
+  print(form.errors)
+  return render_template("hotelbooking.html", form=form)
