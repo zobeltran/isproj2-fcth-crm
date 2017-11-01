@@ -1,17 +1,21 @@
 """
 This is the Configuration
 """
+
+
 class BaseConfig(object):
     """ This is the main config class to be inherited """
     DEBUG = False
     TESTING = False
 
+
 class DevelopmentConfig(BaseConfig):
     """ This is the main configuration class """
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///C:\\User\\Renzo\\Documents\\Codes\\Python\\isproj2-fcth-crm\\dev\\crm.db'
+    SQLALCHEMY_DATABASE_URI = r'sqlite:///C:\Users\Renzo\Documents\Codes\Python\isproj2-fcth-crm\dev\crm.db'
     SECRET_KEY = 'developmentsecretkey'
     UPLOAD_FOLDER = 'app/upload'
+
 
 class ProductionConfig(BaseConfig):
     """ This is the production configuration class """
