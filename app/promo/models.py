@@ -2,9 +2,13 @@
 Models for Promos Module
 """
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 
 # Database Initialization
 DB = SQLAlchemy()
+# Migration
+MIGRATE = Migrate()
+
 
 class Packages(DB.Model):
     """
@@ -21,6 +25,7 @@ class Packages(DB.Model):
     def __repr__(self):
         return '<Package %r)' % self.package_name
 
+
 class HotelBookings(DB.Model):
     """
     Hotel Bookings Model
@@ -36,6 +41,7 @@ class HotelBookings(DB.Model):
     def __repr__(self):
         return '<Hotel %r)' % self.hbooking_name
 
+
 class FlightBooking(DB.Model):
     """
     Flight Bookings Model
@@ -47,7 +53,7 @@ class FlightBooking(DB.Model):
     fbooking_arrival_date = DB.Column(DB.String(50), nullable=False)
     fbooking_budget_range = DB.Column(DB.Float)
     fbooking_head_count = DB.Column(DB.Integer)
-    fbooking__tablename__ = 'Flight_Booking_Request'
+    __tablename__ = 'Flight_Booking_Request'
 
     def __repr__(self):
         return '<Flight %r - %r)' % self.fbooking_departure, self.fbooking_arrival
