@@ -3,4 +3,6 @@ This is the run file
 """
 from app import APP
 
-APP.run(host="0.0.0.0")
+if __name__ == '__main__':
+    APP.jinja_env.cache = {}
+    APP.run()
