@@ -12,6 +12,7 @@ flask = "*"
 "psycopg2" = "*"
 "flask-wtf" = "*"
 gunicorn = "*"
+"flask-migrate" = "*"
 
 
 [dev-packages]
