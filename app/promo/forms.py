@@ -5,7 +5,7 @@ Form Class for Promo Modules
 from flask_wtf import FlaskForm
 from wtforms import StringField, FloatField, IntegerField, SubmitField
 from wtforms.validators import InputRequired, DataRequired, Length, Email
-from wtforms.fields import DateField
+from wtforms.fields.html5 import DateField
 
 
 class FlightForm(FlaskForm):
