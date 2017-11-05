@@ -8,8 +8,7 @@ from flask_user import UserManager
 # CSRF
 from flask_wtf.csrf import CSRFProtect
 # Models
-from app.promo.models import DB as DBPROMO, MIGRATE as MIGRATEPROMO
-from app.users.models import DB as DBUSER, MIGRATE as MIGRATEUSER
+from app.models import DB, MIGRATE
 # Routes
 from app.promo.routes import MOD_PROMO
 from app.users.routes import MOD_USER
@@ -24,8 +23,7 @@ from flask_migrate import Migrate, MigrateCommand
 APP = Flask(__name__, static_folder=None)
 
 # Database Initialization
-DBPROMO.init_app(APP)
-DBUSER.init_app(APP)
+DB.init_app(APP)
 
 # CSRF Protection
 CSRF = CSRFProtect(APP)
@@ -34,11 +32,10 @@ CSRF = CSRFProtect(APP)
 # USER_MANAGER = UserManager(DB_ADAPTER, APP)
 
 # Flask Migrations Initialization
-MIGRATEPROMO.init_app(APP, DBPROMO)
-MIGRATEUSER.init_app(APP, DBPROMO)
+MIGRATE.init_app(APP, DB)
 
 # Configuration
-APP.config.from_object('config.ProductionConfig')
+APP.config.from_object('config.DevelopmentConfig')
 
 # Blueprint Registration
 APP.register_blueprint(MOD_PROMO)

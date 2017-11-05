@@ -2,7 +2,7 @@
 This is the routes file for promo
 """
 from flask import Blueprint, render_template
-from app.promo.models import Packages, HotelBookings, FlightBooking, DB
+from app.models import Packages, HotelBookings, FlightBooking, DB
 from app.promo import forms
 
 MOD_PROMO = Blueprint('promo', __name__, template_folder='templates',
