@@ -8,24 +8,24 @@ from flask_user import UserManager
 # CSRF
 from flask_wtf.csrf import CSRFProtect
 # Models
-from app.promo.models import DB as DBPROMO
-from app.promo.models import MIGRATE as MIGRATEPROMO
+from app.promo.models import DB as DBPROMO, MIGRATE as MIGRATEPROMO
+from app.users.models import DB as DBUSER, MIGRATE as MIGRATEUSER
+# Routes
+from app.promo.routes import MOD_PROMO
+from app.users.routes import MOD_USER
 # from app.users.models import DB as DBUSER
 # Models DB Adaptor
 # from app.users.models import DB_ADAPTER
 # Flask Migrations
 from flask_migrate import Migrate, MigrateCommand
-# Flask Script
-# from flask_script import Manager
-# Routes
-from app.promo.routes import MOD_PROMO
+
 
 # Flask Initialization
 APP = Flask(__name__, static_folder=None)
 
 # Database Initialization
 DBPROMO.init_app(APP)
-# DBUSER.init_app(APP)
+DBUSER.init_app(APP)
 
 # CSRF Protection
 CSRF = CSRFProtect(APP)
@@ -35,12 +35,14 @@ CSRF = CSRFProtect(APP)
 
 # Flask Migrations Initialization
 MIGRATEPROMO.init_app(APP, DBPROMO)
+MIGRATEUSER.init_app(APP, DBPROMO)
 
 # Configuration
-APP.config.from_object('config.DevelopmentConfig')
+APP.config.from_object('config.ProductionConfig')
 
 # Blueprint Registration
 APP.register_blueprint(MOD_PROMO)
+APP.register_blueprint(MOD_USER)
 
 if __name__ == '__main__':
     APP.jinja_env.cache = {}
