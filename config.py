@@ -15,6 +15,7 @@ class DevelopmentConfig(BaseConfig):
     SQLALCHEMY_DATABASE_URI = r'sqlite:///C:\Users\Renzo\Documents\Codes\Python\isproj2-fcth-crm\dev\crm.db'
     SECRET_KEY = 'developmentsecretkey'
     UPLOAD_FOLDER = 'app/upload'
+    USER_ENABLE_EMAIL = False
 
 
 class ProductionConfig(BaseConfig):
@@ -25,3 +26,4 @@ class ProductionConfig(BaseConfig):
     SECRET_KEY = '\xd6;\x9aq)\xea\xa5\x9c\xf5BM^N\x05X\\\xec5w\x0f\xb9\xab\xf9\xb8'
     UPLOAD_FOLDER = 'app/upload'
     SQLALCHEMY_DATABASE_URI = DATABASE
+    USER_ENABLE_EMAIL = False
