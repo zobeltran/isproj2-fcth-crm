@@ -13,16 +13,16 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Packages
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('promo.promos')}}">Packages
                     <span class="sr-only">(current)</span>
                 </a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Flights Bookings</a>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('promo.flights')}}">Flights Bookings</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Hotel Bookings</a>
+                <a class="nav-link" href="{{ url_for('promo.bookings')}}">Hotel Bookings</a>
             </li>
         </ul>
         <!-- <ul class="navbar-nav">

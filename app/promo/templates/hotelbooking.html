@@ -51,32 +51,33 @@
 {% block content %}
 <div class="container">
     {% from "_formhelper.html" import render_field %}
-    <form action="{{ url_for('promo.flights')}}" method="post">
+    <form action="{{ url_for('promo.bookings')}}" method="post">
         {{form.csrf_token}}
         <div class="row">
             <div class="col">
                 <!-- email -->
-                {{ render_field(form.email, class="form-control"}}
+                {{ render_field(form.email, class="form-control") }}
                 <!-- place_to -->
-                {{ render_field(form.place_from, class="form-control", placeholder="ex. Manila") }}
+                {{ render_field(form.hotel_location, class="form-control", placeholder="ex. Manila") }}
                 <!-- place_from -->
-                {{ render_field(form.place_to, class="form-control", placeholder="ex. Palawan") }}
-                <!-- departure_date -->
-                {{ render_field(form.departure_date, class="form-control", placeholder="ex.mm-dd-yyyy") }}
+                {{ render_field(form.check_in_date, class="form-control", placeholder="ex. Palawan") }}
             </div>
             <div class="col">
+                <!-- departure_date -->
+                {{ render_field(form.check_out_date, class="form-control", placeholder="ex.mm-dd-yyyy") }}
                 <!-- arrival_date -->
-                {{ render_field(form.arrival_date, class="form-control", placeholder="ex. mm-dd-yyyy") }}
+                {{ render_field(form.number_of_rooms, class="form-control", placeholder="ex. mm-dd-yyyy") }}
                 <!-- budget_range -->
                 {{ render_field(form.budget_range, class="form-control", placeholder="ex. 500.00") }}
-                <!-- head_count -->
-                {{ render_field(form.head_count, class="form-control", placeholder="ex. 5") }}
             </div>
         </div>
         {{ form.submit(class_='btn btn-block btn-primary')}}
     </form>
 </div>
-{% endblock %} {% block footer %}
+{% endblock %}
+
+<!-- Footer -->
+{% block footer %}
 <div class="container-fluid bg-light mt-3 py-3">
     <span class="text-muted">This is created for ISPROJ2</span>
 </div>
