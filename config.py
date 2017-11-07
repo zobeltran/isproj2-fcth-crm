@@ -15,7 +15,26 @@ class DevelopmentConfig(BaseConfig):
     SQLALCHEMY_DATABASE_URI = r'sqlite:///C:\Users\Renzo\Documents\Codes\Python\isproj2-fcth-crm\dev\crm.db'
     SECRET_KEY = 'developmentsecretkey'
     UPLOAD_FOLDER = 'app/upload'
+    # Flask User Configurations
     USER_ENABLE_EMAIL = False
+    USER_AFTER_CHANGE_PASSWORD_ENDPOINT = 'main.homepage'              # v0.5.3 and up
+    USER_AFTER_CHANGE_USERNAME_ENDPOINT = 'main.homepage'              # v0.5.3 and up
+    USER_AFTER_CONFIRM_ENDPOINT = 'main.homepage'              # v0.5.3 and up
+    USER_AFTER_FORGOT_PASSWORD_ENDPOINT = 'main.homepage'              # v0.5.3 and up
+    USER_AFTER_LOGIN_ENDPOINT = 'main.homepage'              # v0.5.3 and up
+    USER_AFTER_LOGOUT_ENDPOINT = 'user.login'    # v0.5.3 and up
+    USER_AFTER_REGISTER_ENDPOINT = 'main.homepage'              # v0.5.3 and up
+    USER_AFTER_RESEND_CONFIRM_EMAIL_ENDPOINT = 'main.homepage'              # v0.5.3 and up
+    USER_AFTER_RESET_PASSWORD_ENDPOINT = 'main.homepage'              # v0.6 and up
+    USER_INVITE_ENDPOINT = 'main.homepage'              # v0.6.2 and up
+    # Flask Mail Configurations
+    MAIL_SERVER = 'smtp.gmail.com'
+    MAIL_PORT = 587
+    MAIL_USE_SSL = False
+    MAIL_USE_TSL = True
+    MAIL_USERNAME = 'renzoe.beltran@gmail.com'
+    MAIL_PASSWORD = ''
+    MAIL_DEFAULT_SENDER = 'renzoe.beltran@gmail.com'
 
 
 class ProductionConfig(BaseConfig):
