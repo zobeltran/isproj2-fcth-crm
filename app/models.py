@@ -8,48 +8,29 @@ from flask_migrate import Migrate
 DB = SQLAlchemy()
 MIGRATE = Migrate()
 
+
 # User Model
-
-
 class User(DB.Model, UserMixin):
-    """
-    User Model
-    """
-    id = DB.Column('User_id', DB.Integer, primary_key=True)
+    id = DB.Column(DB.Integer, primary_key=True)
 
-    # User email information
-    email = DB.Column('User_email', DB.String(255),
-                      nullable=False, unique=True)
-    confirmed_at = DB.Column('User_confirmed', DB.DateTime())
+    # User Authentication information
+    username = DB.Column(DB.String(50), nullable=False, unique=True)
+    password = DB.Column(DB.String(255), nullable=False, default='')
+
+    # User Email information
+    # email = DB.Column(DB.String(255), nullable=False, unique=True)
+    confirmed_at = DB.Column(DB.DateTime())
 
     # User information
     is_enabled = DB.Column(DB.Boolean(), nullable=False, default=False)
-    first_name = DB.Column('User_First_Name', DB.String(50), nullable=False)
-    last_name = DB.Column('User_Last_Name', DB.String(50), nullable=False)
-    active = DB.Column('User_active', DB.Boolean())
-    # Relationships
-    user = DB.relationship('UserAuth', backref='userauth', lazy=True)
+    first_name = DB.Column(DB.String(50), nullable=False, default='')
+    last_name = DB.Column(DB.String(50), nullable=False, default='')
 
+    def is_active(self):
+        return self.is_enabled
 
-class UserAuth(DB.Model, UserMixin):
-    """
-    User Authentication
-    """
-    id = DB.Column(DB.Integer, primary_key=True)
-    user_id = DB.Column(DB.Integer(), DB.ForeignKey(
-        'user.User_id', ondelete='CASCADE'))
-
-    # User authentication information
-    username = DB.Column(DB.String(50), nullable=False, unique=True)
-    password = DB.Column(DB.String(255), nullable=False)
-
-
-# Flask-User Initialization
-DB_ADAPTER = SQLAlchemyAdapter(DB, User, UserAuthClass=UserAuth)
 
 # Promo model
-
-
 class Packages(DB.Model):
     """
     Package Model
