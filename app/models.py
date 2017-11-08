@@ -18,7 +18,7 @@ class User(DB.Model, UserMixin):
     password = DB.Column(DB.String(255), nullable=False, default='')
 
     # User Email information
-    # email = DB.Column(DB.String(255), nullable=False, unique=True)
+    email = DB.Column(DB.String(255), nullable=False, unique=True, default='')
     confirmed_at = DB.Column(DB.DateTime())
 
     # User information
