@@ -41,8 +41,9 @@
 {% block jumbtron %}
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4">Packages</h1>
-        <p class="lead">Choose your packages</p>
+        <h1 class="display-4">Hotel Booking Request</h1>
+        <p class="lead">Please enter the require fields for your Hotel Booking Request</p>
+        <p class="lead">An email will be replied to you within 1 working day</p>
     </div>
 </div>
 {% endblock %}
@@ -71,6 +72,7 @@
                 {{ render_field(form.budget_range, class="form-control", placeholder="ex. 500.00") }}
             </div>
         </div>
+        {{ form.recaptcha() }}
         {{ form.submit(class_='btn btn-block btn-primary')}}
     </form>
 </div>

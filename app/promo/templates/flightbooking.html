@@ -73,6 +73,7 @@
                 {{ render_field(form.head_count, class="form-control", placeholder="ex. 5") }}
             </div>
         </div>
+        {{ form.recaptcha() }}
         {{ form.submit(class_='btn btn-block btn-primary')}}
     </form>
 </div>
