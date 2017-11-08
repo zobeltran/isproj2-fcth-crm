@@ -1,8 +1,8 @@
-"""Enabled Email
+"""Initialize Database
 
-Revision ID: 14f4d8151049
+Revision ID: 4ed95d0eb1f8
 Revises: 
-Create Date: 2017-11-08 13:51:11.690170
+Create Date: 2017-11-08 20:01:06.300729
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '14f4d8151049'
+revision = '4ed95d0eb1f8'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -25,7 +25,7 @@ def upgrade():
     sa.Column('fbooking_arrival', sa.String(length=200), nullable=False),
     sa.Column('fbooking_departure_date', sa.Date(), nullable=False),
     sa.Column('fbooking_arrival_date', sa.Date(), nullable=False),
-    sa.Column('fbooking_budget_range', sa.Float(), nullable=True),
+    sa.Column('fbooking_budget_range', sa.Integer(), nullable=True),
     sa.Column('fbooking_head_count', sa.Integer(), nullable=True),
     sa.PrimaryKeyConstraint('fbooking_id')
     )
@@ -36,14 +36,14 @@ def upgrade():
     sa.Column('hbooking_check_in', sa.String(length=50), nullable=True),
     sa.Column('hbooking_check_out', sa.String(length=50), nullable=True),
     sa.Column('hbooking_number_of_rooms', sa.Integer(), nullable=True),
-    sa.Column('hbooking_budget_range', sa.Float(), nullable=True),
+    sa.Column('hbooking_budget_range', sa.Integer(), nullable=True),
     sa.PrimaryKeyConstraint('hbooking_id')
     )
     op.create_table('Package',
     sa.Column('package_id', sa.Integer(), nullable=False),
     sa.Column('package_name', sa.String(length=100), nullable=False),
     sa.Column('package_description', sa.String(length=200), nullable=False),
-    sa.Column('package_price', sa.Float(), nullable=True),
+    sa.Column('package_price', sa.Integer(), nullable=True),
     sa.Column('package_createtime', sa.DateTime(), nullable=True),
     sa.Column('package_updated', sa.DateTime(), nullable=True),
     sa.PrimaryKeyConstraint('package_id')

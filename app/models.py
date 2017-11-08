@@ -38,7 +38,7 @@ class Packages(DB.Model):
     package_id = DB.Column(DB.Integer, primary_key=True)
     package_name = DB.Column(DB.String(100), nullable=False)
     package_description = DB.Column(DB.String(200), nullable=False)
-    package_price = DB.Column(DB.Float)
+    package_price = DB.Column(DB.Integer)
     package_createtime = DB.Column(DB.DateTime)
     package_updated = DB.Column(DB.DateTime)
     __tablename__ = 'Package'
@@ -57,7 +57,7 @@ class HotelBookings(DB.Model):
     hbooking_check_in = DB.Column(DB.String(50))
     hbooking_check_out = DB.Column(DB.String(50))
     hbooking_number_of_rooms = DB.Column(DB.Integer)
-    hbooking_budget_range = DB.Column(DB.Float)
+    hbooking_budget_range = DB.Column(DB.Integer)
     __tablename__ = 'Hotel_Booking_Request'
 
     def __repr__(self):
@@ -74,7 +74,7 @@ class FlightBooking(DB.Model):
     fbooking_arrival = DB.Column(DB.String(200), nullable=False)
     fbooking_departure_date = DB.Column(DB.Date, nullable=False)
     fbooking_arrival_date = DB.Column(DB.Date, nullable=False)
-    fbooking_budget_range = DB.Column(DB.Float)
+    fbooking_budget_range = DB.Column(DB.Integer)
     fbooking_head_count = DB.Column(DB.Integer)
     __tablename__ = 'Flight_Booking_Request'
 

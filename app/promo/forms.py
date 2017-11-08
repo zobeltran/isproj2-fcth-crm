@@ -3,7 +3,7 @@ Form Class for Promo Modules
 """
 
 from flask_wtf import FlaskForm, RecaptchaField
-from wtforms import StringField, FloatField, IntegerField, SubmitField
+from wtforms import StringField, IntegerField, SubmitField
 from wtforms.validators import InputRequired, DataRequired, Length, Email
 from wtforms.fields.html5 import DateField
 
@@ -36,7 +36,7 @@ class FlightForm(FlaskForm):
                                validators=[InputRequired(message='Please enter a Departure Date')])
     arrival_date = DateField('Arrival Date',
                              validators=[InputRequired(message='Please enter an Arrival Date')])
-    budget_range = FloatField('Budget Range',
+    budget_range = IntegerField('Budget Range',
                               validators=[InputRequired(message='Please enter a Budget Range')])
     head_count = IntegerField('Head Count',
                               validators=[InputRequired(message='Please enter the head count')])
@@ -69,7 +69,7 @@ class HotelForm(FlaskForm):
                                [DataRequired('Please enter an Arrival Date')])
     number_of_rooms = IntegerField('Number of Rooms',
                                    [DataRequired('Please Enter number of Rooms needed')])
-    budget_range = FloatField('Budget Range',
+    budget_range = IntegerField('Budget Range',
                               [DataRequired('Please enter a Budget Range')])
     recaptcha = RecaptchaField()
     submit = SubmitField('Submit')

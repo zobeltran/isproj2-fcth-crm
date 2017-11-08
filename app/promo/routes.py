@@ -1,12 +1,18 @@
 """
 This is the routes file for promo
 """
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request, url_for, redirect
 from app.models import Packages, HotelBookings, FlightBooking, DB
 from app.promo import forms
+import stripe
 
 MOD_PROMO = Blueprint('promo', __name__, template_folder='templates',
                       static_folder='static', static_url_path='/%s' % __name__)
+
+pubkey = 'pk_test_GjK3GmJJ1exs60wIcgTpfggq'
+secretkey = 'sk_test_RXyvP1FBgkRyCwyEBGyZeymo'
+
+stripe.api_key = secretkey
 
 
 @MOD_PROMO.route('/')
@@ -17,10 +23,10 @@ def promos():
 
 
 @MOD_PROMO.route('/package/<int:package_id>')
-def package():
+def package(package_id):
     """ Package """
-    packages = Packages.query.all()
-    return render_template('package.html', packages=packages)
+    packages = Packages.query.filter_by(package_id=package_id).all()
+    return render_template('getpackage.html', packages=packages, pubkey=pubkey)
 
 
 @MOD_PROMO.route('/flights', methods=['GET', 'POST'])
@@ -34,10 +40,8 @@ def flights():
                                fbooking_budget_range=form.budget_range.data, fbooking_head_count=form.head_count.data)
         DB.session.add(flight)
         DB.session.commit()
-        return '<h1>Flight Destination: ' + form.place_to.data + '</h1> Validate on Submit'
+        redirect(url_for('promo.confirmhotel'))
     print(form.errors)
-    # if form.is_submitted():
-    # return '<h1>Flight Destination:' + form.place_to.data + '</h1> Submitted'
     return render_template("flightbooking.html", form=form)
 
 
@@ -50,6 +54,37 @@ def bookings():
                               hbooking_check_out=form.check_out_date.data, hbooking_number_of_rooms=form.number_of_rooms.data, hbooking_budget_range=form.budget_range.data)
         DB.session.add(hotel)
         DB.session.commit()
-        return '<h1>Hotel Bookings: ' + form.hotel_location.data + '</h1>'
+        redirect(url_for('promo.confirmhotel'))
     print(form.errors)
     return render_template("hotelbooking.html", form=form)
+
+
+@MOD_PROMO.route('/flight-confirmation', methods=['GET', 'POST'])
+def confirmflight():
+    """ Flight Confirmation """
+    return render_template("flightconfirmation.html")
+
+
+@MOD_PROMO.route('/hotel-confirmation', methods=['GET', 'POST'])
+def confirmhotel():
+    """ Hotel Confirmation """
+    return render_template("hotelconfirmation.html")
+
+
+@MOD_PROMO.route('/packagepayment/<int:package_id>', methods=['POST'])
+def pay(package_id):
+    """ Payment Server Side """
+    print(request.form)
+    packages = Packages.query.filter_by(package_id=package_id).all()
+
+    customer = stripe.Customer.create(
+        email=request.form['stripeEmail'], source=request.form['stripeToken'])
+
+    for items in packages:
+        charge = stripe.Charge.create(
+            customer=customer.id,
+            amount=items.package_price * 100,
+            currency="php",
+            description=items.package_name
+    )
+    return redirect(url_for('promo.promos'))
