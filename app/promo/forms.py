@@ -63,9 +63,9 @@ class HotelForm(FlaskForm):
     hotel_location = StringField('Hotel Location',
                                  [DataRequired('Please insert a Departure Place'),
                                   Length(max=100)])
-    check_in_date = DateField('Departure Date',
+    check_in_date = DateField('Check in Date',
                               [DataRequired('Please enter a Departure Date')])
-    check_out_date = DateField('Arrival Date',
+    check_out_date = DateField('Check out Date',
                                [DataRequired('Please enter an Arrival Date')])
     number_of_rooms = IntegerField('Number of Rooms',
                                    [DataRequired('Please Enter number of Rooms needed')])
