@@ -1,9 +1,9 @@
-{% extends 'layout.html' %}
+{% extends "layout.html" %}
 
 <!-- Title -->
-{% block title %} Flight Booking {% endblock %}
+{% block title %} Hotel Booking {% endblock %}
 
-<!-- Navbar Block -->
+<!-- Navbar -->
 {% block navbar %}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">CRM-FCTH</a>
@@ -35,45 +35,36 @@
         </ul> -->
     </div>
 </nav>
-{% endblock %}
+{% endblock%}
 
 <!-- Jumbotron Block -->
 {% block jumbtron %}
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4">Flight Booking Request</h1>
-        <p class="lead">Please enter the require fields for your Flight Booking Request</p>
+        <h1 class="display-4">Create Package</h1>
+        <p class="lead">Please enter the require fields for your Hotel Booking Request</p>
         <p class="lead">An email will be replied to you within 1 working day</p>
     </div>
 </div>
 {% endblock %}
+
 <!-- Content -->
 {% block content %}
 <div class="container">
     {% from "_formhelper.html" import render_field %}
-    <form action="" method="post">
+    <form action="{{ url_for('main.promo')}}" method="post">
         {{form.csrf_token}}
         <div class="row">
             <div class="col">
-                <!-- email -->
-                {{ render_field(form.email, class="form-control", placeholder="ex. email@address.com") }}
-                <!-- place_to -->
-                {{ render_field(form.place_from, class="form-control", placeholder="ex. Manila") }}
-                <!-- place_from -->
-                {{ render_field(form.place_to, class="form-control", placeholder="ex. Palawan") }}
-                <!-- departure_date -->
-                {{ render_field(form.departure_date, class="form-control", placeholder="ex.mm-dd-yyyy") }}
-            </div>
-            <div class="col">
-                <!-- arrival_date -->
-                {{ render_field(form.arrival_date, class="form-control", placeholder="ex. mm-dd-yyyy") }}
-                <!-- budget_range -->
-                {{ render_field(form.budget_range, class="form-control", placeholder="ex. 500.00") }}
-                <!-- head_count -->
-                {{ render_field(form.head_count, class="form-control", placeholder="ex. 5") }}
+                <!-- name -->
+                {{ render_field(form.package_name, class="form-control", placeholder="ex. Trip to Cebu") }}
+                <!-- description -->
+                {{ render_field(form.description, class="form-control", placeholder="Package Description") }}
+                <!-- price -->
+                {{ render_field(form.package_price, class="form-control", placeholder="10000") }}
             </div>
         </div>
-        {{ form.recaptcha() }}
+        {{ form.recaptcha() }} 
         {{ form.submit(class_='btn btn-block btn-primary')}}
     </form>
 </div>

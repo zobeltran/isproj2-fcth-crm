@@ -4,28 +4,34 @@ NOTE: __init__.py is a special Python file that allows a directory to become
 a Python package so it can be accessed using the 'import' statement
 """
 from flask import Flask
-from flask_user import UserManager
+from flask_user import UserManager, SQLAlchemyAdapter
 # CSRF
 from flask_wtf.csrf import CSRFProtect
 # Models
-from app.promo.models import DB as DBPROMO
-from app.promo.models import MIGRATE as MIGRATEPROMO
-# from app.users.models import DB as DBUSER
-# Models DB Adaptor
-# from app.users.models import DB_ADAPTER
-# Flask Migrations
-from flask_migrate import Migrate, MigrateCommand
-# Flask Script
-# from flask_script import Manager
+from app.models import DB, MIGRATE, User
 # Routes
 from app.promo.routes import MOD_PROMO
+from app.users.routes import MOD_USER
+# Models DB Adaptor
+# Flask Migrations
+from flask_migrate import Migrate
+# Flask Mail
+from flask_mail import Mail
+# Registration Form
+from app.users.forms import MyRegisterForm
+
 
 # Flask Initialization
 APP = Flask(__name__, static_folder=None)
 
+# Configuration
+APP.config.from_object('config.DevelopmentConfig')
+
 # Database Initialization
-DBPROMO.init_app(APP)
-# DBUSER.init_app(APP)
+DB.init_app(APP)
+
+# Flask Mail initializaed
+MAIL = Mail(APP)
 
 # CSRF Protection
 CSRF = CSRFProtect(APP)
@@ -34,13 +40,16 @@ CSRF = CSRFProtect(APP)
 # USER_MANAGER = UserManager(DB_ADAPTER, APP)
 
 # Flask Migrations Initialization
-MIGRATEPROMO.init_app(APP, DBPROMO)
+MIGRATE.init_app(APP, DB)
 
-# Configuration
-APP.config.from_object('config.DevelopmentConfig')
 
 # Blueprint Registration
 APP.register_blueprint(MOD_PROMO)
+APP.register_blueprint(MOD_USER)
+
+DATABASEADAPTER = SQLAlchemyAdapter(DB, User)
+USERMANAGER = UserManager(DATABASEADAPTER, APP, register_form=MyRegisterForm)
+
 
 if __name__ == '__main__':
     APP.jinja_env.cache = {}
