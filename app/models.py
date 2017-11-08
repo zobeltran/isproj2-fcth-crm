@@ -54,8 +54,8 @@ class HotelBookings(DB.Model):
     hbooking_id = DB.Column(DB.Integer, primary_key=True)
     hbooking_email = DB.Column(DB.String(100))
     hbooking_location = DB.Column(DB.String(200), nullable=False)
-    hbooking_check_in = DB.Column(DB.String(50))
-    hbooking_check_out = DB.Column(DB.String(50))
+    hbooking_check_in = DB.Column(DB.Date)
+    hbooking_check_out = DB.Column(DB.Date)
     hbooking_number_of_rooms = DB.Column(DB.Integer)
     hbooking_budget_range = DB.Column(DB.Integer)
     __tablename__ = 'Hotel_Booking_Request'

@@ -1,8 +1,8 @@
-"""Initialize Database
+"""Database Migrate
 
-Revision ID: 4ed95d0eb1f8
+Revision ID: e5bb39593d99
 Revises: 
-Create Date: 2017-11-08 20:01:06.300729
+Create Date: 2017-11-09 00:07:36.365603
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '4ed95d0eb1f8'
+revision = 'e5bb39593d99'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -33,8 +33,8 @@ def upgrade():
     sa.Column('hbooking_id', sa.Integer(), nullable=False),
     sa.Column('hbooking_email', sa.String(length=100), nullable=True),
     sa.Column('hbooking_location', sa.String(length=200), nullable=False),
-    sa.Column('hbooking_check_in', sa.String(length=50), nullable=True),
-    sa.Column('hbooking_check_out', sa.String(length=50), nullable=True),
+    sa.Column('hbooking_check_in', sa.Date(), nullable=True),
+    sa.Column('hbooking_check_out', sa.Date(), nullable=True),
     sa.Column('hbooking_number_of_rooms', sa.Integer(), nullable=True),
     sa.Column('hbooking_budget_range', sa.Integer(), nullable=True),
     sa.PrimaryKeyConstraint('hbooking_id')
