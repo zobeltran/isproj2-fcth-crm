@@ -47,7 +47,7 @@ class ProductionConfig(BaseConfig):
     SECRET_KEY = '\xd6;\x9aq)\xea\xa5\x9c\xf5BM^N\x05X\\\xec5w\x0f\xb9\xab\xf9\xb8'
     UPLOAD_FOLDER = 'app/upload'
     SQLALCHEMY_DATABASE_URI = DATABASE
-    USER_ENABLE_EMAIL = False
+    USER_ENABLE_EMAIL = True 
     USER_AFTER_CHANGE_PASSWORD_ENDPOINT = 'main.homepage'              # v0.5.3 and up
     USER_AFTER_CHANGE_USERNAME_ENDPOINT = 'main.homepage'              # v0.5.3 and up
     USER_AFTER_CONFIRM_ENDPOINT = 'main.homepage'              # v0.5.3 and up
