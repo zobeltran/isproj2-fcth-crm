@@ -1,8 +1,8 @@
-"""Database Initialization
+"""Enabled Email
 
-Revision ID: 0074af430aa4
+Revision ID: 14f4d8151049
 Revises: 
-Create Date: 2017-11-07 14:25:11.506221
+Create Date: 2017-11-08 13:51:11.690170
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '0074af430aa4'
+revision = '14f4d8151049'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -52,11 +52,13 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('username', sa.String(length=50), nullable=False),
     sa.Column('password', sa.String(length=255), nullable=False),
+    sa.Column('email', sa.String(length=255), nullable=False),
     sa.Column('confirmed_at', sa.DateTime(), nullable=True),
     sa.Column('is_enabled', sa.Boolean(), nullable=False),
     sa.Column('first_name', sa.String(length=50), nullable=False),
     sa.Column('last_name', sa.String(length=50), nullable=False),
     sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
     )
     # ### end Alembic commands ###
