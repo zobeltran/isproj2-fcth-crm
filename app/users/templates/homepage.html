@@ -55,6 +55,7 @@
                 <th>Arrival Date</th>
                 <th>Budget Range</th>
                 <th>Head Count</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -67,6 +68,7 @@
                 <td>{{item.fbooking_arrival_date}}</td>
                 <td>{{item.fbooking_budget_range}}</td>
                 <td>{{item.fbooking_head_count}}</td>
+                <td><a href="{{url_for('main.fdelete', fbooking_id=item.fbooking_id)}}">Delete</a></td>
             </tr>
             {% endfor %}
         </tbody>
@@ -94,9 +96,38 @@
                 <td>{{item.hbooking_check_out}}</td>
                 <td>{{item.hbooking_number_of_rooms}}</td>
                 <td>{{item.hbooking_budget_range}}</td>
+                <td>
+                    <a href="{{url_for('main.hdelete', hbooking_id=item.hbooking_id)}}">Delete</a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+    
+        <h1>Packages</h1>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Package Name</th>
+                    <th>Package Description</th>
+                    <th>Price</th>
+                    <th>Creation Date</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in packages %}
+                <tr>
+                    <td>{{ item.package_name }}</td>
+                    <td>{{item.package_description}}</td>
+                    <td>{{item.package_price}}</td>
+                    <td>{{item.package_createtime}}</td>
+                    <td>
+                        <a href="{{url_for('main.pdelete', package_id=item.package_id)}}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 </div>
 {% endblock %}

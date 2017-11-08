@@ -1,7 +1,7 @@
 """
 This is the User Routes
 """
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, redirect, url_for
 from app.models import Packages, HotelBookings, FlightBooking, DB
 from flask_user import login_required
 from datetime import datetime
@@ -20,7 +20,8 @@ def homepage():
         FlightBooking.fbooking_id.desc()).all()
     hotels = HotelBookings.query.order_by(
         HotelBookings.hbooking_id.desc()).all()
-    return render_template("homepage.html", flights=flights, hotels=hotels)
+    packages = Packages.query.order_by(Packages.package_id.desc()).all()
+    return render_template("homepage.html", flights=flights, hotels=hotels, packages=packages)
 
 
 @MOD_USER.route('/user/createpromo', methods=['POST', 'GET'])
@@ -33,6 +34,36 @@ def promo():
                            package_price=form.package_price.data, package_createtime=datetime.today(), package_updated=datetime.today())
         DB.session.add(package)
         DB.session.commit()
-        return render_template("homepage.html")
+        return redirect( url_for("main.homepage", code=307))
     print(form.errors)
     return render_template('createpackage.html', form=form)
+
+
+@MOD_USER.route('/user/flightdelete/confirm/<int:fbooking_id>')
+@login_required
+def fdelete(fbooking_id):
+    """ Flight Deletion """
+    flights = FlightBooking.query.get_or_404(fbooking_id)
+    DB.session.delete(flights)
+    DB.session.commit()
+    return redirect(url_for('main.homepage')) 
+
+
+@MOD_USER.route('/user/hoteldelete/confirm/<int:hbooking_id>')
+@login_required
+def hdelete(hbooking_id):
+    """ Flight Deletion """
+    hotel = HotelBookings.query.get_or_404(hbooking_id)
+    DB.session.delete(hotel)
+    DB.session.commit()
+    return redirect(url_for('main.homepage'))
+
+
+@MOD_USER.route('/user/packagedelete/confirm/<int:package_id>')
+@login_required
+def pdelete(package_id):
+    """ Flight Deletion """
+    packages = Packages.query.get_or_404(package_id)
+    DB.session.delete(packages)
+    DB.session.commit()
+    return redirect(url_for('main.homepage')) 
