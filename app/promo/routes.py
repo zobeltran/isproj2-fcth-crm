@@ -29,13 +29,13 @@ def package(package_id):
     return render_template('getpackage.html', packages=packages, pubkey=pubkey)
 
 
-@MOD_PROMO.route('/flight-confirmation', methods=['GET', 'POST'])
+@MOD_PROMO.route('/flights/confirm')
 def confirmflight():
     """ Flight Confirmation """
     return render_template("flightconfirmation.html")
 
 
-@MOD_PROMO.route('/hotel-confirmation', methods=['GET', 'POST'])
+@MOD_PROMO.route('/bookings/confirm')
 def confirmhotel():
     """ Hotel Confirmation """
     return render_template("hotelconfirmation.html")
@@ -51,7 +51,7 @@ def flights():
                                fbooking_budget_range=form.budget_range.data, fbooking_head_count=form.head_count.data)
         DB.session.add(flight)
         DB.session.commit()
-        redirect(url_for('promo.confirmflight', code=307))
+        return redirect(url_for("promo.confirmflight", code=307))
     print(form.errors)
     return render_template("flightbooking.html", form=form)
 
@@ -65,7 +65,7 @@ def bookings():
                               hbooking_check_out=form.check_out_date.data, hbooking_number_of_rooms=form.number_of_rooms.data, hbooking_budget_range=form.budget_range.data)
         DB.session.add(hotel)
         DB.session.commit()
-        redirect(url_for('promo.confirmhotel', code=307))
+        return redirect(url_for("promo.confirmhotel", code=307))
     print(form.errors)
     return render_template("hotelbooking.html", form=form)
 
@@ -86,4 +86,4 @@ def pay(package_id):
             currency="php",
             description=items.package_name
     )
-    return redirect(url_for('promo.promos'))
+    return redirect(url_for("promo.promos"))
