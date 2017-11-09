@@ -68,7 +68,10 @@ def bookings():
         return redirect(url_for("promo.confirmhotel", code=307))
     print(form.errors)
     return render_template("hotelbooking.html", form=form)
-
+@MOD_PROMO.route('/packagepayment/confirm)
+def confirmpromo():
+    """ Payment Confimation """
+    return render_template("confirmpayment.html")
 
 @MOD_PROMO.route('/packagepayment/<int:package_id>', methods=['POST'])
 def pay(package_id):
@@ -86,4 +89,4 @@ def pay(package_id):
             currency="php",
             description=items.package_name
     )
-    return redirect(url_for("promo.promos"))
+    return redirect(url_for("promo.confirmpromo", code=307))
