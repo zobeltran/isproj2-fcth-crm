@@ -59,7 +59,7 @@
                 <h4 class="card-title" href="">{{ package.package_name }}</h4>
                 <p class="card-text">{{ package.package_description }}</p>
                 <p class="card-text">{{ package.package_price }}</p>
-                <a href="{{ url_for('promo.package', package_id=package.package_id)}}" class="btn btn-primary">Click here to view and buy this promo</a>
+                <a href="{{ url_for('promo.package', package_id=package.package_id)}}" class="btn btn-primary">Click here to view</a>
             </div>
             <div class="card-footer">
                 <small class="text-muted">Last Updated at {{ package.package_updated.strftime('%B %d, %Y') }}</small>
