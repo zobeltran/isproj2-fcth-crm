@@ -6,13 +6,13 @@
 
 Production Based                                        |       Project Based 
 --------------------------------------------------------|---------------------------------------
-Commit Change Request                                   |       ~~Packages Pages~~
+~~Commit Change Request~~                               |       ~~Packages Pages~~
 Defense Fee and OR                                      |       ~~Request Flights Page~~
 ~~Establish Database Connection~~                       |       ~~Request Bookings Page~~
-~~Establish Production Database (Heroku Postgresql)~~   |       View Request Flights Page
-User's Manual                                           |       Admin User Authentication
-~~Deployment~~                                          |       Create Package Page
-CD Deployment                                           |       View Request Bookings Page
+~~Establish Production Database (Heroku Postgresql)~~   |       ~~View Request Flights Page~~
+User's Manual                                           |       ~~Admin User Authentication~~
+~~Deployment~~                                          |       ~~Create Package Page~~
+CD Deployment                                           |       ~~View Request Bookings Page~~
 
 ### How to Run the Code Locally
 
