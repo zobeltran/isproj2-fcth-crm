@@ -68,7 +68,8 @@ def bookings():
         return redirect(url_for("promo.confirmhotel", code=307))
     print(form.errors)
     return render_template("hotelbooking.html", form=form)
-@MOD_PROMO.route('/packagepayment/confirm)
+  
+@MOD_PROMO.route('/packagepayment/confirm')
 def confirmpromo():
     """ Payment Confimation """
     return render_template("confirmpayment.html")
