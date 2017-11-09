@@ -26,11 +26,11 @@ class FlightForm(FlaskForm):
                                     Email(
                                         message='Please input a valid Email Address'),
                                     Length(max=100)])
-    place_from = StringField('Departure Place',
-                             validators=[InputRequired(message='Please insert a Departure Place'),
+    place_from = StringField('Departure Location',
+                             validators=[InputRequired(message='Please insert a Departure Location'),
                                          Length(max=100)])
-    place_to = StringField('Arrival Place',
-                           validators=[InputRequired(message='Please insert an Arrival Place'),
+    place_to = StringField('Arrival Location',
+                           validators=[InputRequired(message='Please insert an Arrival Location'),
                                        Length(max=100)])
     departure_date = DateField('Departure Date',
                                validators=[InputRequired(message='Please enter a Departure Date')])
@@ -61,12 +61,12 @@ class HotelForm(FlaskForm):
                                         message='Please insert a valid Email Address'),
                                     Length(max=100)])
     hotel_location = StringField('Hotel Location',
-                                 [DataRequired('Please insert a Departure Place'),
+                                 [DataRequired('Please insert a location for your Hotel'),
                                   Length(max=100)])
     check_in_date = DateField('Check in Date',
-                              [DataRequired('Please enter a Departure Date')])
+                              [DataRequired('Please enter a Check in Date')])
     check_out_date = DateField('Check out Date',
-                               [DataRequired('Please enter an Arrival Date')])
+                               [DataRequired('Please enter a Check out Date')])
     number_of_rooms = IntegerField('Number of Rooms',
                                    [DataRequired('Please Enter number of Rooms needed')])
     budget_range = IntegerField('Budget Range',
