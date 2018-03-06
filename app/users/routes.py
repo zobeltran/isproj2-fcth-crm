@@ -68,7 +68,7 @@ def pdelete(package_id):
     DB.session.commit()
     return redirect(url_for('main.homepage')) 
 
-@MOD_USER.route('/user/check/<string:hbooking_email>')
+@MOD_USER.route('/user/check/<hbooking_email>')
 @login_required
 def check(hbooking_email):
     """ Email Search """
