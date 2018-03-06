@@ -75,6 +75,9 @@
                 <td>{{item.fbooking_budget_range}}</td>
                 <td>{{item.fbooking_head_count}}</td>
                 <td><a href="{{url_for('main.fdelete', fbooking_id=item.fbooking_id)}}">Delete</a></td>
+                <td>
+                    <a href="{{url_for('main.check', hbooking_email=item.fbooking_email)}}">Delete</a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
@@ -105,6 +108,9 @@
                 <td>{{item.hbooking_budget_range}}</td>
                 <td>
                     <a href="{{url_for('main.hdelete', hbooking_id=item.hbooking_id)}}">Delete</a>
+                </td>
+                <td>
+                    <a href="{{url_for('main.check', hbooking_email=item.hbooking_email)}}">Delete</a>
                 </td>
             </tr>
             {% endfor %}

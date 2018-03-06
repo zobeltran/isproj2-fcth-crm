@@ -68,10 +68,10 @@ def pdelete(package_id):
     DB.session.commit()
     return redirect(url_for('main.homepage')) 
 
-@MOD_USER.route('/user/check')
+@MOD_USER.route('/user/check/<string:hbooking_email>')
 @login_required
-def check():
+def check(hbooking_email):
     """ Email Search """
-    flights = FlightBooking.query.filter_by(fbooking_email = 'fcthcrmtesting@gmail.com').all();
-    hotels = HotelBookings.query.filter_by(hbooking_email = 'fcthcrmtesting@gmail.com').all();
+    flights = FlightBooking.query.filter_by(fbooking_email = hbooking_email).all();
+    hotels = HotelBookings.query.filter_by(hbooking_email = hbooking_email).all();
     return render_template("availed.html", flights=flights, hotels=hotels)
