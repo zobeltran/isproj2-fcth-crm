@@ -25,14 +25,17 @@
                 <a class="nav-link" href="{{ url_for('promo.bookings')}}">Hotel Bookings</a>
             </li>
         </ul>
-        <!-- <ul class="navbar-nav">
+        <ul class="navbar-nav">
+            {% if call_or_get(current_user.is_authenticated) %} 
             <li class="nav-item">
-                <a href="" class="nav-link">Register</a>
+                <a href="{{ url_for('main.homepage') }}" class="nav-link">Employee's Overview</a>
             </li>
+            {% else %}
             <li class="nav-item">
-                <a href="" class="nav-link">Login</a>
+                <a href="{{ url_for('main.homepage') }}" class="nav-link">Employee Login</a>
             </li>
-        </ul> -->
+            {% endif %}
+        </ul>
     </div>
 </nav>
 {% endblock%}

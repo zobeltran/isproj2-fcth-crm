@@ -26,6 +26,9 @@
         <ul class="navbar-nav">
             {% if call_or_get(current_user.is_authenticated) %}
             <li class="nav-item">
+                <a href="{{ url_for('promo.promos') }}" class="nav-link">Promo Pages</a>
+            </li>
+            <li class="nav-item">
                 <a href="{{ url_for('user.profile') }}" class="nav-link">{{ current_user.username }}</a>
             </li>
             <li class="nav-item">
