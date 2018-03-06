@@ -67,3 +67,11 @@ def pdelete(package_id):
     DB.session.delete(packages)
     DB.session.commit()
     return redirect(url_for('main.homepage')) 
+
+@MOD_USER.route('user/check/<string:fbooking_email>')
+@login_required
+def check(fbooking_email):
+    """ Email Search """
+    flights = FlightBooking.query.filter(FlightBooking.fbooking_email.endswitch('@gmail.com')).all();
+    hotels = HotelBookings.query.filter(HotelBooking.hbooking_email.endswitch('@gmail.com')).all();
+    return render_template("availed.html", flights=flights, hotels=hotels)

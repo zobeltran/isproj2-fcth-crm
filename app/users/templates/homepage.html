@@ -47,6 +47,9 @@
 <!-- Content -->
 {% block content %}
 <div class="container">
+
+<a href="{{ url_for('main.check') }}">Check Availed</a>
+
     <h1>Flights</h1>
     <table class="table table-striped table-bordered">
         <thead>
@@ -94,7 +97,7 @@
         <tbody>
             {% for item in hotels %}
             <tr>
-                <td>{{ item.hbooking_email }}</td>
+                <td>{{item.hbooking_email}}</td>
                 <td>{{item.hbooking_location}}</td>
                 <td>{{item.hbooking_check_in.strftime('%b %d, %Y')}}</td>
                 <td>{{item.hbooking_check_out.strftime('%b %d, %Y')}}</td>
