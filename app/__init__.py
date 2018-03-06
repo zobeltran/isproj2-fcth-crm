@@ -25,7 +25,7 @@ from app.users.forms import MyRegisterForm
 APP = Flask(__name__, static_folder=None)
 
 # Configuration
-APP.config.from_object('config.ProductionConfig')
+APP.config.from_object('config.DevelopmentConfig')
 
 # Database Initialization
 DB.init_app(APP)
