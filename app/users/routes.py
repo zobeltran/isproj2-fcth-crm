@@ -72,6 +72,6 @@ def pdelete(package_id):
 @login_required
 def check(hbooking_email):
     """ Email Search """
-    flights = FlightBooking.query.filter_by(fbooking_email = hbooking_email).first_or_404()
-    hotels = HotelBookings.query.filter_by(hbooking_email = hbooking_email).first_or_404()
+    flights = FlightBooking.query.filter(FligtBooking.fbooking_email.like%(hbooking_email)).all()
+    hotels = HotelBookings.query.filter(Hbooking.hbooking_email.like$(hbooking_email)).all()
     return render_template("availed.html", flights=flights, hotels=hotels)
