@@ -10,7 +10,7 @@ from flask_wtf.csrf import CSRFProtect
 # Models
 from app.models import DB, MIGRATE, User
 # Routes
-from app.promo.routes import MOD_PROMO
+from app.promo.routes import MOD_PROMO, SOCKETIO
 from app.users.routes import MOD_USER
 # Models DB Adaptor
 # Flask Migrations
@@ -50,7 +50,9 @@ APP.register_blueprint(MOD_USER)
 DATABASEADAPTER = SQLAlchemyAdapter(DB, User)
 USERMANAGER = UserManager(DATABASEADAPTER, APP, register_form=MyRegisterForm)
 
+# SocketIO initialization
+SOCKETIO.init_app(APP)
 
 if __name__ == '__main__':
     APP.jinja_env.cache = {}
-    APP.run()
+    SOCKETIO.run(APP)

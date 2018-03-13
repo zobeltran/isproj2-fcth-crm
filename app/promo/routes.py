@@ -4,7 +4,12 @@ This is the routes file for promo
 from flask import Blueprint, render_template, request, url_for, redirect
 from app.models import Packages, HotelBookings, FlightBooking, DB
 from app.promo import forms
+from flask_socketio import SocketIO, send
 import stripe
+
+SOCKETIO = SocketIO()
+
+
 
 MOD_PROMO = Blueprint('promo', __name__, template_folder='templates',
                       static_folder='static', static_url_path='/%s' % __name__)
@@ -13,7 +18,6 @@ pubkey = 'pk_test_GjK3GmJJ1exs60wIcgTpfggq'
 secretkey = 'sk_test_RXyvP1FBgkRyCwyEBGyZeymo'
 
 stripe.api_key = secretkey
-
 
 @MOD_PROMO.route('/')
 def promos():
@@ -91,3 +95,11 @@ def pay(package_id):
             description=items.package_name
     )
     return redirect(url_for("promo.confirmpromo", code=307))
+
+@MOD_PROMO.route('/chat')
+def chat():
+    @SOCKETIO.on('message')
+    def handleMessage(msg):
+        print('Message: ' + msg)
+        send(msg, broadcast=True)
+    return render_template('chat.html')

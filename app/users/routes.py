@@ -58,7 +58,6 @@ def hdelete(hbooking_id):
     DB.session.commit()
     return redirect(url_for('main.homepage'))
 
-
 @MOD_USER.route('/user/packagedelete/confirm/<int:package_id>')
 @login_required
 def pdelete(package_id):
@@ -67,11 +66,3 @@ def pdelete(package_id):
     DB.session.delete(packages)
     DB.session.commit()
     return redirect(url_for('main.homepage')) 
-
-@MOD_USER.route('/user/check/<hbooking_email>')
-@login_required
-def check(hbooking_email):
-    """ Email Search """
-    flights = FlightBooking.query.filter(FligtBooking.fbooking_email.like(hbooking_email)).all()
-    hotels = HotelBookings.query.filter(Hbooking.hbooking_email.like(hbooking_email)).all()
-    return render_template("availed.html", flights=flights, hotels=hotels)
