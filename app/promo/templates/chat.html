@@ -67,12 +67,12 @@
         });
 
         socket.on('message', function(msg) {
-            $("#message").append('<li class="list-group-item">Customer: ' + msg + '</li>');
+            $("#message").append('<li class="list-group-item">' + msg + '</li>');
             console.log('Received message');
         });
 
         $('#sendbutton').on('click' ,function() {
-            socket.send($('#name').val() + ' ' +$('#myMessage').val());
+            socket.send($('#name').val() + ': ' + $('#myMessage').val());
             console.log($('#myMessage').val())
             $('#myMessage').val('');
         });
@@ -82,7 +82,7 @@
         <ul class="list-group list-group-flush" id="message"></ul>    
     </div>    
     Email: <input type="text" id="name">
-    Nessage: <input type="text" id="myMessage">
+    Message: <input type="text" id="myMessage">
     <button class="btn btn-primary" id="sendbutton">Send</button> 
 </div>
 {% endblock %}
