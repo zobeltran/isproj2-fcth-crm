@@ -67,7 +67,7 @@
         });
 
         socket.on('message', function(msg) {
-            $("#message").append('<li class="list-group-item">' + msg + '</li>');
+            $("#message").append('<li class="list-group-item">Customer: ' + msg + '</li>');
             console.log('Received message');
         });
 
@@ -79,10 +79,9 @@
     });
     </script>    
     <div class="card" style="width: 50rem;">
-        <ul class="list-group list-group-flush" id="message"></ul>
-        <br>
-        <input type="text" id="myMessage">
-        <button class="btn btn-primary" id="sendbutton">Send</button>
+        <ul class="list-group list-group-flush" id="message"></ul>    
     </div>    
+    <input type="text" id="myMessage">
+    <button class="btn btn-primary" id="sendbutton">Send</button> 
 </div>
 {% endblock %}
