@@ -60,7 +60,7 @@
     <script type="text/javascript" charset="utf-8">
     $(document).ready(function() { 
 
-        var socket = io.connect('https://' + document.domain + ':' + location.port);
+        var socket = io.connect('https://isproj2-crm-fcth.herokuapp.com');
 
         socket.on('connect', function() {
             socket.send('A customer has Connected!');
