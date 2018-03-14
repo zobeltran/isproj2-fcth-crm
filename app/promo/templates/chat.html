@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 <!-- Title -->
-{% block title %} Packages {% endblock %}
+{% block title %} Chat Room {% endblock %}
 
 <!-- Navbar Block -->
 {% block navbar %}
@@ -81,8 +81,16 @@
     <div class="card" style="width: 50rem;">
         <ul class="list-group list-group-flush" id="message"></ul>    
     </div>    
-    Email: <input type="text" id="name">
-    Message: <input type="text" id="myMessage">
-    <button class="btn btn-primary" id="sendbutton">Send</button> 
+    <br>
+    <div class="form-inline">
+        <label class="sr-only">Email:</label>
+        <input type="text" class="form-control mb-2 mr-sm-2" id="name" placeholder="Email">
+
+        <div class="input-group mb-2 mr-sm-2">
+            <label class="sr-only">Message:</label>
+            <input type="text" class="form-control mb-2 mr-sm-2" id="myMessage" placeholder="Message">
+        </div>
+        <button class="btn btn-primary mb-2" id="sendbutton">Send</button> 
+    </div>
 </div>
 {% endblock %}
