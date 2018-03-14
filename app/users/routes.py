@@ -7,6 +7,9 @@ from flask_user import login_required
 from datetime import datetime
 from app.users import forms
 from app.models import Packages
+from flask_socketio import SocketIO, send
+
+SOCKETIO = SocketIO()
 
 MOD_USER = Blueprint('main', __name__, template_folder='templates',
                      static_folder='static', static_url_path='/%s' % __name__)
@@ -66,3 +69,11 @@ def pdelete(package_id):
     DB.session.delete(packages)
     DB.session.commit()
     return redirect(url_for('main.homepage')) 
+
+@MOD_PROMO.route('/user/chat')
+def chat():
+    @SOCKETIO.on('message')
+    def handleMessage(msg):
+        print('Message: ' + msg)
+        send(msg, broadcast=True)
+    return render_template('adminchat.html')

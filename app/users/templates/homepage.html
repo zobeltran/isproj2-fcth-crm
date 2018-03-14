@@ -21,7 +21,9 @@
            <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('main.promo')}}">Promo Create</a>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link" target="_blank" href="{{ url_for('main.chat') }}">Chat Room</a>
+            </li>
         </ul>
         <ul class="navbar-nav">
             {% if call_or_get(current_user.is_authenticated) %}
