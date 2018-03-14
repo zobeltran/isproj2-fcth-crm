@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 <!-- Title -->
-{% block title %} Packages {% endblock %}
+{% block title %} Admin Chat {% endblock %}
 
 <!-- Navbar Block -->
 {% block navbar %}
@@ -86,7 +86,14 @@
     <div class="card" style="width: 50rem;">
         <ul class="list-group list-group-flush" id="message"></ul>    
     </div>    
-    Message: <input type="text" id="myMessage" class="form-control">
-    <button class="btn btn-primary" id="sendbutton">Send</button> 
+    <br>
+    <div class="form-inline">
+        <div class="input-group mb-2 mr-sm-2">
+            <label>Message:</label>
+            <input type="text" id="myMessage" class="form-control">
+        </div>        
+        <button class="btn btn-primary" id="sendbutton">Send</button> 
+    </div>
+    
 </div>
 {% endblock %}
