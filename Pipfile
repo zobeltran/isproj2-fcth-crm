@@ -1,12 +1,9 @@
 [[source]]
-
 url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
-
 [packages]
-
 flask = "*"
 flask-sqlalchemy = "*"
 flask-user = "*"
@@ -19,8 +16,7 @@ stripe = "*"
 flask-socketio = "*"
 eventlet = "*"
 
-
 [dev-packages]
-
 pylint = "*"
 "autopep8" = "*"
+"flake8" = "*"
