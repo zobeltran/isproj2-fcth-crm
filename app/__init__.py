@@ -13,8 +13,6 @@ from app.models import DB, MIGRATE, User
 from app.promo.routes import MOD_PROMO, SOCKETIO
 from app.users.routes import MOD_USER
 # Models DB Adaptor
-# Flask Migrations
-from flask_migrate import Migrate
 # Flask Mail
 from flask_mail import Mail
 # Registration Form
@@ -36,17 +34,14 @@ MAIL = Mail(APP)
 # CSRF Protection
 CSRF = CSRFProtect(APP)
 
-# Flask User Initialization
-# USER_MANAGER = UserManager(DB_ADAPTER, APP)
-
 # Flask Migrations Initialization
 MIGRATE.init_app(APP, DB)
-
 
 # Blueprint Registration
 APP.register_blueprint(MOD_PROMO)
 APP.register_blueprint(MOD_USER)
 
+# Flask User Initialization
 DATABASEADAPTER = SQLAlchemyAdapter(DB, User)
 USERMANAGER = UserManager(DATABASEADAPTER, APP, register_form=MyRegisterForm)
 
